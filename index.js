@@ -1,15 +1,19 @@
 const express = require('express');
 require('dotenv').config();
+const cors = require('cors');
 
 const { dbConnection } = require('./database/config')
 
-// Create server with express
+//  Create server with express
 const app = express();
 
-// DataBase
+//  Config CORS
+app.use(cors())
+
+//  DataBase
 dbConnection();
 
-// Routes
+//  Routes
 app.get( '/', (req, res) => {
     
     res.json({
@@ -19,5 +23,5 @@ app.get( '/', (req, res) => {
 });
 
 app.listen( process.env.PORT, () => {
-    
+    console.log('Servidor corriendo en el puerto', process.env.PORT);
 })
