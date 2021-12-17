@@ -1,11 +1,14 @@
 const express = require('express');
+require('dotenv').config();
+
 const { dbConnection } = require('./database/config')
 
+// Create server with express
 const app = express();
 
+// DataBase
 dbConnection();
-//  MEAN_USER - Roger
-//  vmPB4WenxuasVDAM - VHIYlZqexcqhpYmt
+
 // Routes
 app.get( '/', (req, res) => {
     
@@ -15,6 +18,6 @@ app.get( '/', (req, res) => {
     })
 });
 
-app.listen( 3000, () => {
+app.listen( process.env.PORT, () => {
     
 })
