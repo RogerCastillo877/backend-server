@@ -16,4 +16,7 @@ Then install and set mongoose [https://mongoosejs.com/] in database/config.js
 
 Install npm i dotenv, and config Environment variables
 
-install npm i cors
+Install npm i cors and set it
+
+## Creation of user model
+
