@@ -41,3 +41,6 @@ Then implement middleware to use token
 ### Create Models and Routes
 
 Create model and routes for Hospitals and Doctors
+
+## Pagination
+
