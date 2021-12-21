@@ -50,7 +50,57 @@ const createUser = async(req, res = response) => {
     }    
 }
 
+const updateUser = async(req, res = response) => {
+    //  TODO: Validar token y comprobar si el usuario es correcto
+
+    const uid = req.params.id;
+
+    try {
+        
+        const userDB = await User.findById( uid );
+        
+        if( !userDB ) {
+            return res.status(404).json({
+                ok: false,
+                msg: 'No existe un usuario con ese id'
+            });
+        }
+
+        if( userDB.email === req.body.email ) {
+            delete fields.email;
+        } else {
+            const emailExist = await User.findOne({ email: req.body.email })
+            if( emailExist ) {
+                return res.status(400).json({
+                    ok: false,
+                    msg: 'Ya existe un usuario con ese email'
+                })
+            }
+        }
+
+        //  Updates
+        const fields = req.body;
+        delete fields.password;
+        delete fields.google;
+
+        const userUpdate = await User.findByIdAndUpdate( uid, fields, { new: true } );
+
+        res.json({
+            ok: true,
+            user: userUpdate
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Error inesperado'
+        })
+    }
+}
+
 module.exports = {
     getUsers,
-    createUser
+    createUser,
+    updateUser
 }
