@@ -24,4 +24,10 @@ Create de model and then routes and separete controllers
 
 ### Install express-validator
 
+Set validators and middleware
+
+## Encrypt password
+
+npm i bcryptjs
+
 npm i express-validator
