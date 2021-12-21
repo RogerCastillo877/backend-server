@@ -66,10 +66,12 @@ const updateUser = async(req, res = response) => {
             });
         }
 
-        if( userDB.email === req.body.email ) {
-            delete fields.email;
-        } else {
-            const emailExist = await User.findOne({ email: req.body.email })
+        //  Updates
+        const { password, google, email, ...fields } = req.body;
+
+        if( userDB.email !== email ) {
+            
+            const emailExist = await User.findOne({ email })
             if( emailExist ) {
                 return res.status(400).json({
                     ok: false,
@@ -78,10 +80,7 @@ const updateUser = async(req, res = response) => {
             }
         }
 
-        //  Updates
-        const fields = req.body;
-        delete fields.password;
-        delete fields.google;
+        fields.email = email;
 
         const userUpdate = await User.findByIdAndUpdate( uid, fields, { new: true } );
 
