@@ -31,3 +31,7 @@ Set validators and middleware
 npm i bcryptjs
 
 npm i express-validator
+
+## Generate JWT
+
+npm i jsonwebtoken
