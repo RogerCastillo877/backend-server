@@ -35,3 +35,5 @@ npm i express-validator
 ## Generate JWT
 
 npm i jsonwebtoken
+
+Then implement middleware to use token
