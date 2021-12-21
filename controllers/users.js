@@ -2,6 +2,7 @@ const { response } = require('express');
 const bcrypt = require('bcryptjs');
 
 const User = require('../models/user');
+const res = require('express/lib/response');
 
 const getUsers = async(req, res) => {
 
@@ -98,8 +99,40 @@ const updateUser = async(req, res = response) => {
     }
 }
 
+const deleteUser = async(req, res = response) =>{
+
+    const uid = req.params.id;
+
+    try {
+
+        const userDB = await User.findById( uid );
+        
+        if( !userDB ) {
+            return res.status(404).json({
+                ok: false,
+                msg: 'No existe un usuario con ese id'
+            });
+        }
+
+        await User.findByIdAndDelete( uid );
+
+        res.json({
+            ok: true,
+            msg: 'Usuario Borrado'
+        })
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Error inesperado'
+        })
+    }
+}
+
 module.exports = {
     getUsers,
     createUser,
-    updateUser
+    updateUser,
+    deleteUser
 }
