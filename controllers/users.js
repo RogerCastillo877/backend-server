@@ -1,3 +1,5 @@
+const { response } = require('express');
+const { validationResult } = require('express-validator');
 const User = require('../models/user');
 
 const getUsers = async(req, res) => {
@@ -10,18 +12,44 @@ const getUsers = async(req, res) => {
     });
 }
 
-const createUser = async(req, res) => {
+const createUser = async(req, res = response) => {
   
-    const { email, password, name } = req.body;
+    const { email, password, nombre } = req.body;
     
-    const user = new User( req.body );
+    const errors = validationResult(req);
+    if( !errors.isEmpty() ) {
+        return res.status(400).json({
+            ok: false,
+            erorrs: errors.mapped()
+        })
+    }
 
-    await user.save();
+    try {
 
-    res.json({
-        ok:true,
-        user
-    });
+        const emailExist = await User.findOne({ email });
+
+        if( emailExist ) {
+            return res.status(400).json({
+                ok: false,
+                msg: 'El correo ya está registrado'
+            })
+        }
+        const user = new User( req.body );
+
+        await user.save();
+
+        res.json({
+            ok:true,
+            user
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Error inesperado...revisar logs'
+        })
+    }    
 }
 
 module.exports = {

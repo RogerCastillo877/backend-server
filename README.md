@@ -20,3 +20,8 @@ Install npm i cors and set it
 
 ## Creation of user model
 
+Create de model and then routes and separete controllers
+
+### Install express-validator
+
+npm i express-validator
