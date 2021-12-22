@@ -44,3 +44,12 @@ Create model and routes for Hospitals and Doctors
 
 ## Pagination
 
+Create pagination and then generate diferent ways to searchs.
+
+## To upload files
+
+npm i express-fileupload form [https://www.npmjs.com/package/express-fileupload]
+
+## Generate Unique Identificators
+
+npm install uuid form [https://www.npmjs.com/package/uuid]
