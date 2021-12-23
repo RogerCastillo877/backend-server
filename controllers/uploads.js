@@ -1,5 +1,6 @@
 const { response } = require("express");
 const { v4: uuidv4 } = require('uuid');
+const { updateImage } = require("../helpers/update-image");
 
 const fileUpload = ( req, res = response) => {
 
@@ -52,6 +53,9 @@ const fileUpload = ( req, res = response) => {
                 msg: 'Error al mover la imagen'
             });
         }
+
+        //  To update DataBase
+        updateImage( type, id, fileName );
         
         res.json({
             ok: true,
