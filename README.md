@@ -53,3 +53,9 @@ npm i express-fileupload form [https://www.npmjs.com/package/express-fileupload]
 ## Generate Unique Identificators
 
 npm install uuid form [https://www.npmjs.com/package/uuid]
+
+## Use library Server-index - NodeJS
+
+var serveIndex = require('serve-index');
+app.use(express.static(__dirname + '/'))
+app.use('/uploads', serveIndex(__dirname + '/uploads'));

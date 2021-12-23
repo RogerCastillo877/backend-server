@@ -1,6 +1,10 @@
+const path = require('path');
+const fs = require('fs');
+
 const { response } = require("express");
 const { v4: uuidv4 } = require('uuid');
 const { updateImage } = require("../helpers/update-image");
+const res = require('express/lib/response');
 
 const fileUpload = ( req, res = response) => {
 
@@ -65,6 +69,23 @@ const fileUpload = ( req, res = response) => {
     });
 };
 
+const returnImage = ( req, res = response ) => {
+
+    const type = req.params.type;
+    const photo = req.params.photo;
+
+    const pathImg = path.join( __dirname, `../uploads/${ type }/${ photo }` );
+
+    //  Deafault Image
+    if( fs.existsSync(pathImg) ) {
+        res.sendFile( pathImg );
+    } else {
+        const pathImg = path.join( __dirname, `../uploads/no-img.jpg` );
+        res.sendFile( pathImg );
+    }
+}
+
 module.exports = {
-    fileUpload
+    fileUpload,
+    returnImage
 }
