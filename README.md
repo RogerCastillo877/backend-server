@@ -59,3 +59,13 @@ npm install uuid form [https://www.npmjs.com/package/uuid]
 var serveIndex = require('serve-index');
 app.use(express.static(__dirname + '/'))
 app.use('/uploads', serveIndex(__dirname + '/uploads'));
+
+## Login Google [https://developers.google.com/identity/sign-in/web/sign-in]
+
+Create a project and set credentials
+
+npm install google-auth-library --save
+
+## Publish Docs with Postman
+
+You can generate an automatic documentation with postman using publish docs and then publish collection
