@@ -21,16 +21,6 @@ router.post( '/',
     createHospitals
 );
 
-router.put('/:id', 
-    [],
-    updateHospitals
-);
-
-router.delete('/:id', 
-    validateJWT,
-    deleteHospitals
-);
-
 router.put( '/:id',
     [
         validateJWT,

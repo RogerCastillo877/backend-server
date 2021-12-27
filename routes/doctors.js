@@ -27,6 +27,7 @@ router.put('/:id',
     [
         validateJWT,
         check('name', 'El nombre del médico es necesario').not().isEmpty(),
+        check('hospital', 'El hospital id debe ser válido').isMongoId(),
         validatorFields
     ],
     updateDoctors
