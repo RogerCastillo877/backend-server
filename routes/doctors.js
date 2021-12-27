@@ -24,7 +24,11 @@ router.post( '/',
 );
 
 router.put('/:id', 
-    [],
+    [
+        validateJWT,
+        check('name', 'El nombre del médico es necesario').not().isEmpty(),
+        validatorFields
+    ],
     updateDoctors
 );
 

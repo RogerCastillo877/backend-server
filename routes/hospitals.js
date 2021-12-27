@@ -31,4 +31,18 @@ router.delete('/:id',
     deleteHospitals
 );
 
+router.put( '/:id',
+    [
+        validateJWT,
+        check('name', 'El nombre del hospital es necesario').not().isEmpty(),
+        validatorFields
+    ],
+    updateHospitals
+);
+
+router.delete( '/:id',
+    validateJWT,
+    deleteHospitals
+);
+
 module.exports = router;
