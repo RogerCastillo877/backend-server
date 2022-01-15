@@ -9,7 +9,7 @@ const deleteImage = ( path ) => {
     }
 }
 
-const updateImage = async( type, id, fileName ) => {
+const UpdateImage = async( type, id, fileName ) => {
 
     let pathOld = '';
     
@@ -66,5 +66,5 @@ const updateImage = async( type, id, fileName ) => {
 }
 
 module.exports = {
-    updateImage
+    updateImage: UpdateImage
 }
