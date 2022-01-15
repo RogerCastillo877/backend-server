@@ -73,3 +73,11 @@ You can generate an automatic documentation with postman using publish docs and 
 ## Create helper to return frontend-menu
 
 Create helper and copy structructure menu from sidebar.service
+
+## Deploy Heroku
+
+add in package.json
+
+"start": "node index.js"
+
+and then create a heroku app
