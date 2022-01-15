@@ -69,3 +69,7 @@ npm install google-auth-library --save
 ## Publish Docs with Postman
 
 You can generate an automatic documentation with postman using publish docs and then publish collection
+
+## Create helper to return frontend-menu
+
+Create helper and copy structructure menu from sidebar.service
