@@ -1,39 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-signin-client_id" content="917631620470-dnavatbficjgobb12cl0kioh2tbssbl6.apps.googleusercontent.com">
-    
-    <title>Demo Sign-in</title>
-</head>
-<body>
-    <h1>Google Sign-in</h1>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    <a href="#" onclick="signOut();">Sign out</a>
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <title>PanelAdmin</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-signin-client_id" content="917631620470-dnavatbficjgobb12cl0kioh2tbssbl6.apps.googleusercontent.com">  
+  <script src="https://apis.google.com/js/platform.js?"></script>
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon.png">
 
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <!-- Bootstrap Core CSS -->
+  <style>@media print{*,::after,::before{text-shadow:none!important;box-shadow:none!important}p{orphans:3;widows:3}}html{box-sizing:border-box;font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-ms-overflow-style:scrollbar;-webkit-tap-highlight-color:transparent}*,::after,::before{box-sizing:inherit}@-ms-viewport{width:device-width}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff}p{margin-top:0;margin-bottom:1rem}</style><link href="./assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="./assets/plugins/bootstrap/css/bootstrap.min.css"></noscript>
+  
+  <!-- Custom CSS -->
+  <style>@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");@import url(../scss/icons/font-awesome/css/font-awesome.min.css);@import url(../scss/icons/simple-line-icons/css/simple-line-icons.css);@import url(../scss/icons/weather-icons/css/weather-icons.min.css);@import url(../scss/icons/linea-icons/linea.css);@import url(../scss/icons/themify-icons/themify-icons.css);@import url(../scss/icons/flag-icon-css/flag-icon.min.css);@import url(../scss/icons/material-design-iconic-font/css/materialdesignicons.min.css);@import url(../css/spinners.css);@import url(../css/animate.css);*{outline:none}body{background:#fff;font-family:"Montserrat", sans-serif;margin:0;overflow-x:hidden;color:#67757c;font-weight:300}html{position:relative;min-height:100%;background:#ffffff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}@media (min-width: 768px){}@media (max-width: 767px){}</style><link href="./assets/css/style.css" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="./assets/css/style.css"></noscript>
+  
+  <!-- You can change the theme colors from here -->
+  <link id="theme" rel="stylesheet">
 
-    <script>
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-            console.log('Name: ' + profile.getName());
-            console.log('Image URL: ' + profile.getImageUrl());
-            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+<link rel="stylesheet" href="styles.6e210e165f6e670a336c.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.6e210e165f6e670a336c.css"></noscript></head>
+<body class="fix-header card-no-border fix-sidebar">
+  
+  <!-- ============================================================== -->
+  <!-- Preloader - style you can find in spinners.css -->
+  <!-- ============================================================== -->
+  <div class="preloader">
+    <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Admin Pro</p>
+    </div>
+  </div>
 
-            var id_token = googleUser.getAuthResponse().id_token;
-            console.log(id_token);
-        }
+  <app-root></app-root>
 
-        //  Sign-out
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-            console.log('User signed out.');
-            });
-        }
-    </script>
-</body>
-</html>
+  <!-- ============================================================== -->
+  <!-- All Jquery -->
+  <!-- ============================================================== -->
+  <script src="./assets/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap tether Core JavaScript -->
+  <script src="./assets/plugins/bootstrap/js/popper.min.js"></script>
+  <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <!-- slimscrollbar scrollbar JavaScript -->
+  <script src="./assets/js/perfect-scrollbar.jquery.min.js"></script>
+  <!--Wave Effects -->
+  <script src="./assets/js/waves.js"></script>
+  <!--Menu sidebar -->
+  <script src="./assets/js/sidebarmenu.js"></script>
+  <!--stickey kit -->
+  <script src="./assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+  <script src="./assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+  <!--Custom JavaScript -->
+  <script src="./assets/js/custom.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="runtime.7dd3c13cc5c7c9049b80.js" defer></script><script src="polyfills.abd575ccf63b902ec268.js" defer></script><script src="main.8e73301703341eaecab9.js" defer></script>
+
+</body></html>
