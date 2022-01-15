@@ -1,5 +1,7 @@
-const express = require('express');
 require('dotenv').config();
+const path = require('path');
+
+const express = require('express');
 const cors = require('cors');
 
 const { dbConnection } = require('./database/config')
@@ -26,6 +28,11 @@ app.use('/api/doctors', require('./routes/doctors'));
 app.use('/api/todo', require('./routes/searchs'));
 app.use('/api/login', require('./routes/auth'));
 app.use('/api/upload', require('./routes/uploads'));
+
+// Last
+app.get('*', (req, res) => {
+    res.sendFile( path.resolve( __dirname, 'public/index.html' ) )
+})
 
 app.listen( process.env.PORT, () => {
     console.log('Servidor corriendo en el puerto', process.env.PORT);
